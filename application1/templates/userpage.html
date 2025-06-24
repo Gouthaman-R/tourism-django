@@ -1,0 +1,280 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
+    <title>Navbar Example</title>
+</head>
+<body>
+      <!-- header partition -->
+  <div style="background: rgb(255, 128, 0);
+  background: -webkit-linear-gradient(45deg,  #ffc400 10%,rgb(255, 128, 0) 100%);
+  background: -o-linear-gradient(45deg,  #ffc400 10%,rgb(255, 128, 0) 100%);
+  background: linear-gradient(45deg,  #ffc400 10%,rgb(255, 128, 0) 100%);; padding: 4px; text-align: center;display: flex;justify-content: flex-start;">
+    <a href="https://www.facebook.com/yourprofile" target="_blank">
+        <img src="{% static 'images/icons8-facebook-50.png' %}" alt="Facebook" style="width: 23px; height: 23px; transform: translateY(5px);margin: 10px;">
+    </a>
+    <a href="https://www.instagram.com/yourprofile" target="_blank">
+        <img src=" {% static 'images/icons8-instagram-50.png' %}" alt="Instagram" style="width: 23px; height: 23px; margin: 10px;transform: translateY(5px);">
+    </a>
+    <a href="mailto:youremail@example.com" style="color: rgb(0, 0, 0); text-decoration: none; font-size: 16px; margin: 15px;">
+        habibiholidays@gmail.com
+    </a>
+</div>
+    <nav class="navbar">
+        <div class="menu-icon" id="menu-icon">&#9776;</div> <!-- Hamburger icon -->
+        <div class="logo">
+            <img src="{% static 'images/HABIBI HOLIDAYSt.png' %}" alt="Logo" />
+        </div>
+        <h1 class="title">HABIBI HOLIDAYS</h1>
+        
+        {% comment %} <div class="search-container">
+        
+    
+            <input type="text" id="search-input" placeholder="Search...">
+            <!-- Container for search results displayed directly below the search bar -->
+            <div id="search-results" class="search-results"></div>
+        </div> {% endcomment %}
+
+        <div class="container">
+            <div class="search-container">
+              <input class="input" type="text" id="search-input" placeholder="Search...">
+              {% comment %} <svg viewBox="0 0 24 24" class="search__icon">
+                <g>
+                  <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                  </path>
+                </g>
+              </svg> {% endcomment %}
+            </div>
+            <!-- Container for search results displayed directly below the search bar -->
+            </div>
+            <div id="search-results" class="search-results"></div>
+
+        
+
+
+        <div class="menu-bar" id="menu-bar">
+            <ul>
+                <li>Hello {{username}}</li>  <!-- Dynamic username -->
+                {% comment %} <li><a href="/plans">My Plans</a></li> {% endcomment %}
+                <a href="{% url 'view_favorites'%}"><li>My Favorites</li></a>  <!-- Use URL names -->
+                <a href="/cart"><li>My Cart</li></a>
+                <a href="/update-password"><li>Update Password</li></a>
+                <a href="{% url 'logout' %}"><li>Log Out</li></a>
+            </ul>
+        </div>
+    </nav>
+
+<!-- carousel-->
+    <div class="slider">
+        <button class="button1 previous1" onclick="moveSlide(-1)">❮</button>
+        <div class="track" id="track">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <div class="image-container">
+                    <img src="{% static 'images/carou1.jpg' %}" alt="Image 1" style="height: 490px; width: 100%;">
+                    <div class="caption">
+                        <h2>JAPAN</h2>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="image-container">
+                    <img src="{% static 'images/carou2.jpg' %}" alt="Image 1" style="height: 490px; width: 100%;">
+                    <div class="caption">
+                        <h2>Switzerland</h2>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="image-container">
+                    <img src="{% static 'images/sing.jpg' %}" alt="Image 1" style="height: 490px; width: 100%;">
+                    <div class="caption">
+                        <h2>Singapore</h2>                       
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="image-container">
+                    <img src="{% static 'images/china.jpg' %}" alt="Image 1" style="height: 490px; width: 100%;">
+                    <div class="caption">
+                        <h2>China</h2>                       
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Slide 5 -->
+            <div class="slide">
+                <div class="image-container">
+                    <img src="{% static 'images/carou5.jpg' %}" alt="Image 1" style="height: 490px; width: 100%;">
+                    <div class="caption">
+                        <h2>Canada</h2>                       
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Repeat other slides here -->
+    
+        </div>
+        <button class="button1 next1" onclick="moveSlide(1)">❯</button>
+    </div>
+    
+<div class='india_head'><h1>Popular Packages For You</h1></div>
+
+<!-- product card -->
+<div class="product-container">
+<!-- success message-->
+{% if payment_success == 'true' %}
+<div id="payment-success-message" style="position: fixed; top: 0; width: 100%; padding: 15px; background-color: #28a745; color: white; text-align: center; z-index: 1000;">
+    Payment Successful! An email has been sent to you.
+</div>
+<script>
+    // Hide the message after 3 seconds
+    setTimeout(function() {
+        document.getElementById('payment-success-message').style.display = 'none';
+    }, 3000);
+</script>
+{% endif %}
+
+ <!-- userpage.html -->
+{% for product in products %}
+<div class="product-card">
+    <div class="carousel">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <!-- Loop through the related product images -->
+        {% for image in product.images.all %}
+
+            <img src="{{ image.image.url }}" alt="Product Image" class="product-image">
+        {% empty %}
+            <p>No images available.</p>
+        {% endfor %}
+
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <h2>{{ product.title }}</h2>
+    <p class="price">₹{{ product.price }}</p>
+    <p>{{ product.content }}</p>
+    
+    <div class="rating">
+        ★★★★☆
+    </div>
+    
+    <div class="buttons">
+        <button class="favorite-btn" data-product-id="{{ product.id }}">
+            {% if product.id in favorite_product_ids %}
+            <span class="heart-icon filled-heart">❤️</span>
+            {% else %}
+            <span class="heart-icon empty-heart">♡</span> 
+            {% endif %}
+        </button>
+    
+        <button class="cart-btn" data-product-id="{{ product.id }}"id="cart-button-{{ product.id }}" >
+             Add to Cart
+        </button>
+        {% comment %} <button class="buy-now">Buy Now</button> {% endcomment %}
+    </div>
+
+</div>
+{% endfor %}
+
+
+        <!-- chat-bot -->
+        
+        {% comment %} <form method="POST">
+            {% csrf_token %}
+            <!-- Other form content -->
+
+            <div>
+                <input type="text" id="user-input" placeholder="Ask me about destinations..." />
+                <button onclick="sendMessage()">Send</button>
+                <div id="chat-output"></div>
+            </div>
+
+        </form> {% endcomment %}
+        
+        
+        
+        
+        
+        
+
+
+
+    {% comment %} <script src="script.js"></script> {% endcomment %}
+
+    <script src="{% static 'js/userscript2.js' %}"></script>
+
+    
+<footer class="footer">
+    <div>
+        <h3>Contact Us</h3>
+        <p>Address: Habibi Holidays Pvt LTD,
+          No.1, Gemini Parsn,
+          Kodambakkam High Road,
+          Nungambakkam, Chennai – 600006
+          Tamilnadu, India.</p>
+        <p>Call Us: (123) 456-7890</p>
+    </div>
+    <div class="branches">
+        <h3>Branches</h3>
+        <p>Mumbai</p>
+        <p>Bangalore</p>
+        <p>Hyderabad</p>
+        <p>Erode</p>
+        <p>Coimbatore</p>
+        
+    </div>
+    <div>
+      <h3>Follow Us</h3>
+      <div class="social-icons" style="transform: translateY(20px);">
+          <a href="https://facebook.com" target="_blank">
+              <img src="{% static 'images/icons8-facebook-50.png' %}" alt="Facebook" style="width: 50px; height: 50px; margin: 0 0px;">
+          </a>
+          <a href="https://instagram.com" target="_blank">
+              <img src="{% static 'images/icons8-instagram-50.png' %}" alt="Instagram" style="width: 50px; height: 50px; margin: 0 10px;">
+          </a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+</body>
+</html> 
+ 
+
+
+
+  
+
+
+
+
+
+
+
+
+
+

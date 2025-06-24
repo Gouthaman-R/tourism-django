@@ -1,0 +1,129 @@
+
+/* Ensure body and cart-items are full width */
+/* Body styling with animated gradient */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ensure the body takes full height */
+    background: linear-gradient(45deg, #ffc400 10%, rgb(255, 128, 0) 100%);
+    background-size: 400% 400%; /* Make the gradient large enough to animate */
+    animation: gradientAnimation 5s ease infinite; /* Animate the gradient */
+}
+
+/* Keyframes for the moving gradient */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Optional: Styling for other elements */
+.cart-items {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Make the table responsive */
+.table1 {
+    width: 100%;  /* Full width of the container */
+    max-width: 1200px;  /* Optional: Set a max width for the table */
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto; /* Adds horizontal scrolling on smaller screens */
+    display: flex;
+    justify-content: center;
+}
+
+/* Styling for table, th, td */
+table, th, td {
+    border: 0.5px solid #ddd;
+    border-radius: 8px;
+    
+    
+}
+
+th, td {
+    padding: 12px; /* Increased padding for better visibility */
+    text-align: center;
+    vertical-align: middle; /* Vertically centers the content */
+}
+
+th {
+    background-color: #000000;
+    color: aliceblue;
+}
+
+
+
+/* Buttons styling */
+.remove-from-cart-btn,
+.buy-now-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 15px;
+    cursor: pointer;
+    font-size: 14px; /* Slightly larger font size */
+    border-radius: 50px; /* Rounded corners */
+    font-family: sans-serif; /* or any basic font */
+}
+
+/* Remove button styling */
+.remove-from-cart-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.remove-from-cart-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Buy Now button styling */
+.buy-now-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.buy-now-btn:hover {
+    background-color: #388E3C;
+}
+
+/* Image Styling */
+.product-image {
+    /* max-width: 500px; 
+    max-height: 100px;  */
+    width: 250px;  /* Maintain aspect ratio */
+    height: 150px; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    border-radius: 5px; /* Optional: Add rounded corners to the image */
+}
+
+/* Media Queries for mobile responsiveness */
+@media (max-width: 768px) {
+    table {
+        font-size: 12px; /* Adjust font size for smaller screens */
+    }
+
+    .remove-from-cart-btn, .buy-now-btn {
+        padding: 8px 12px; /* Adjust button padding */
+    }
+}
+
+
+.cart-head{
+    display: flex;
+    justify-content: center;
+}
+
+

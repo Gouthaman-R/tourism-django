@@ -1,0 +1,776 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+} */
+/* .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:black;
+    padding: 10px 20px;
+    color: white;
+    position: relative;
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.menu-bar {
+    display: none; 
+    position: absolute;
+    top: 88px;
+    left: 0px;
+    background-color: #444;
+    padding: 10px;
+    
+    z-index: 10;
+}
+
+.menu-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: aqua;
+}
+
+.menu-bar li {
+    margin-bottom: 10px;
+    color: antiquewhite;
+}
+
+.logo img {
+    height: 65px; 
+    margin-left: 80px;
+    border-radius: 50%;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+} */
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 10px 20px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100000;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Optional: add a shadow for depth */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    height: 60px;
+
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 28px;
+    color: black;
+}
+
+.menu-bar {
+    position: absolute;
+    top: 80px; /* Adjust based on navbar height */
+    left: 0;
+    width: 180px;
+    background-color: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%); /* Hidden off-screen */
+    transition: transform 0.4s ease-in-out; /* Smooth slide effect */
+    z-index: 10;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    backdrop-filter: blur(1px);
+
+}
+
+.menu-bar.active {
+    transform: translateX(0); /* Slide into view */
+}
+
+.menu-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-bar li {
+    margin-bottom: 15px; /* Space between items */
+    padding: 10px;
+    color: goldenrod;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+    border-radius: 8px;
+    font-size: 20.5px;
+
+    
+}
+.menu-bar ul a li  {
+    color: white;
+    font-size: 15px;
+
+}
+.menu-bar a {
+    text-decoration: none;
+}
+
+
+/* .menu-bar li a:hover {
+    color: #000000;
+} */
+
+
+
+
+.menu-bar li:hover {
+    background: linear-gradient(45deg, #ffc400 10%, rgb(255, 128, 0) 100%);
+    color: black;
+}
+
+.logo img {
+    height: 65px;
+    margin-left: 80px;
+    border-radius: 50%;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 28px;
+    transform: translateX(10px);
+}
+
+
+
+
+
+
+
+
+/* product card */
+
+/* Add this to your CSS file (e.g., userpage.css) */
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next row */
+    gap: 20px; /* Space between cards */
+    justify-content: space-between; /* Space between cards */
+    padding: 10px;
+    background-color: white;
+    margin-top: 25px;
+    
+}
+
+.product-card {
+    flex: 1 1 calc(25% - 20px); /* Four cards per row, with space between */
+    background: linear-gradient(45deg, #ffc400 10%, rgb(255, 128, 0) 100%);
+    padding: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+/* ----------------------------------------------------------------------------- */
+
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        left: 100%;
+    }
+}
+
+
+/* Hover effect */
+.product-card:hover {
+    transform: scale(1.05); /* Slight zoom-in effect */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+
+
+
+    
+    
+
+/* ---------------------------------------------------------------------------------- */
+ 
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.carousel img {
+    width: 100%;
+    display: none;
+    height: 220px;
+    border-radius: 5px;
+}
+
+.carousel img.active {
+    display: block;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    backdrop-filter: blur(1px);
+}
+
+button.prev :hover { 
+ background-color: #000000;
+}
+
+
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 0.9em;
+    color: #555;
+    padding: 0 15px;
+}
+
+.rating {
+    font-size: 1.2em;
+    color: #FFD700;
+    margin: 10px 0;
+}
+
+/* .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+} */
+
+button.favorite, button.add-to-cart, button.buy-now {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+button.favorite {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+
+button.add-to-cart {
+    background-color: #4CAF50;
+    color: #fff;
+    transform: translateY(-27px);
+}
+
+button.buy-now {
+    background-color: #008CBA;
+    color : #fff;
+    transform: translateY(-27px);
+
+}
+
+.product-card .price {
+    font-size: 1.5em;
+    color: #e91e63; /* Custom color for the price */
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-image {
+    display: none;
+}
+
+.product-image.active {
+    display: block;
+}
+
+
+.favorite-btn {
+    width: 50px;  /* Adjust as per your design */
+    height: 20px; 
+    font-size: 24px;  /* Default size of the heart icon */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 25px;
+    /* transform: translateY(40px); */
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+
+.empty-heart {
+    font-size: 28px;
+}
+
+.filled-heart{
+    font-size: 19px;
+
+}
+
+
+/* .cart-btn {
+    font-size: 15px;
+    cursor: pointer;
+    background:burlywood;
+    border: none;
+    border-radius: 50px;
+    transform: translateY(-24px);
+    padding: 8px;
+}
+
+.cart-btn:hover {
+    color: green;
+} */
+
+.cart-btn {
+    font-size: 15px;
+    cursor: pointer;
+    background: burlywood;
+    border: none;
+    border-radius: 50px;
+    transform: translateY(-24px);
+    padding: 8px;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.cart-btn:hover {
+    color: white;
+    background: black; /* Lighter background when hovered */
+    transform: translateY(-28px); /* Slight move up on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+    animation: bounce 0.5s ease 2; /* Bouncing animation */
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0% {
+        transform: translateY(-24px);
+    }
+    25% {
+        transform: translateY(-30px);
+    }
+    50% {
+        transform: translateY(-24px);
+    }
+    75% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(-24px);
+    }
+}
+
+
+.remove-from-cart-btn {
+    font-size: 16px;
+    background-color: #f44336;  /* Red color for remove */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.remove-from-cart-btn:hover {
+    background-color: #e53935;
+}
+
+.buy-now-btn {
+    font-size: 20px;
+    background-color: #4CAF50;  /* Green color for Buy Now */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.buy-now-btn:hover {
+    background-color: #45a049;
+}
+
+
+
+/* Add this to your CSS file (e.g., userpage.css) */
+/* 
+.search-container {
+    position: relative;
+    display: inline-block;
+    width: 180px;
+}
+
+
+
+.search-container input {
+    padding: 5px;
+    margin-right: 5px;
+} 
+
+.search-container button {
+    padding: 5px 10px;
+} */
+
+/* From Uiverse.io by Smit-Prajapati */ 
+/* .container {
+    position: relative;
+    background: linear-gradient(135deg, rgb(179, 208, 253) 0%, rgb(164, 202, 248) 100%);
+    border-radius: 1000px;
+    padding: 10px;
+    display: grid;
+    place-content: center;
+    z-index: 0;
+    max-width: 210px;
+    margin: 0 10px;
+    height: 25px;
+  }
+  
+  .search-container {
+    position: relative;
+    width: 90%;
+    border-radius: 50px;
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    height: 25px;
+
+  }
+  
+  .search-container::after, .search-container::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    position: absolute;
+  }
+  
+  .search-container::before {
+    top: -1px;
+    left: -1px;
+    background: linear-gradient(0deg, rgb(218, 232, 247) 0%, rgb(255, 255, 255) 100%);
+    z-index: -1;
+  }
+  
+  .search-container::after {
+    bottom: -1px;
+    right: -1px;
+    background: linear-gradient(0deg, rgb(163, 206, 255) 0%, rgb(211, 232, 255) 100%);
+    box-shadow: rgba(79, 156, 232, 0.7019607843) 3px 3px 5px 0px, rgba(79, 156, 232, 0.7019607843) 5px 5px 20px 0px;
+    z-index: -2;
+  } */
+
+  .container {
+    position: relative;
+    background: linear-gradient(45deg, #ffc400 10%, rgb(255, 128, 0) 100%);
+    border-radius: 1000px;
+    padding: 10px;
+    display: grid;
+    place-content: center;
+    z-index: 0;
+    max-width: 210px;
+    margin: 0 10px;
+    height: 18px;
+}
+
+.search-container {
+    position: relative;
+    width: 94%;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ffc400 10%, rgb(255, 128, 0) 100%);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    height: 20px;
+}
+
+.search-container::before {
+    top: -1px;
+    left: -1px;
+    background: linear-gradient(45deg, #ffc400 10%, rgb(255, 128, 0) 100%);
+    z-index: -1;
+}
+
+.search-container::after {
+    bottom: -1px;
+    right: -1px;
+    background: linear-gradient(45deg, #ffc400 10%, rgb(255, 128, 0) 100%);
+    box-shadow: rgba(79, 156, 232, 0.7) 3px 3px 5px 0px, rgba(79, 156, 232, 0.7) 5px 5px 20px 0px;
+    z-index: -2;
+}
+
+  
+  .input {
+    padding: 4px;
+    width: 100%;
+    background: linear-gradient(135deg, rgb(242, 245, 247) 0%, rgb(255, 161, 37) 100%);
+    border: none;
+    color: #9EBCD9;
+    font-size: 20px;
+    border-radius: 50px;
+    height: 20px;
+  }
+  
+  .input:focus {
+    outline: none;
+    background: linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(255, 232, 170) 100%);
+  }
+  
+  /* .search__icon {
+    width: 50px;
+    aspect-ratio: 1;
+    border-left: 2px solid white;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-radius: 50%;
+    padding-left: 12px;
+    margin-right: 10px;
+  }
+  
+  .search__icon:hover {
+    border-left: 3px solid white;
+  }
+  
+  .search__icon path {
+    fill: white;
+  } */
+/* -------------search result-------------- */
+  .search-results {
+    position: absolute;
+    top: 100%; 
+    /* left: 0; */
+    width: 260px;
+    background-color:rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    /* border-top-left-radius: 8px; */
+    border-bottom-left-radius: 8px;
+    right: 0;
+    backdrop-filter: blur(1px);
+    color: white;
+}
+
+.search-result {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search-result:hover {
+    /* background-color: #f0f0f0; */
+    background: linear-gradient(45deg, #ffc400 10%, rgb(255, 128, 0) 100%);
+
+    color: #000000;
+}
+
+
+/* userpage carousel */
+
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.image-container {
+    position: relative;
+}
+
+.caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+.button1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+    z-index: 1;
+    border-radius: 50%;
+    backdrop-filter: blur(0.5px);
+}
+
+.previous1 {
+    left: 10px;
+}
+
+.next1 {
+    right: 10px;
+}
+
+.india_head{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px; 
+    /* transform: translateX(14px); */
+    margin-left: 14px;
+    margin-top: 70px;
+}
+
+
+/* footer section */
+
+.footer {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; /* Ensure equal heights */
+    text-align: center;
+}
+
+.footer div {
+    position: relative;
+    flex: 1; /* Equal space for all sections */
+    padding: 0 2rem; /* Spacing for vertical lines */
+    /* border-bottom: 2px solid #fff; Underline */
+    margin-bottom: 1rem; /* Space for underline */
+}
+
+.footer div:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -1rem; /* Space between line and text */
+    top: 0;
+    height: 60%; /* Line height */
+    width: 2px; /* Line width */
+    background-color: #fff; /* Line color */
+}
+
+.footer h3 {
+    margin-bottom: 0.5rem;
+    text-decoration: underline; /* Underline for section titles */
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+.social-icons {
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem; /* Adjust size as needed */
+    transition: transform 0.3s; /* Smooth scaling */
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Scale up on hover */
+}
+
+
+.footer ul {
+    list-style-type: disc; /* Default bullet points */
+    padding-left: 20px; /* Indentation for bullet points */
+    margin: 0; /* Remove default margin */
+}
+
+.footer li {
+    margin: 0.5rem 0; /* Space between list items */
+}
+
+

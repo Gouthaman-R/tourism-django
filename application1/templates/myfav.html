@@ -1,0 +1,186 @@
+{% comment %} <!-- favorites.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
+    <title>My Favorites</title>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Your navbar content here -->
+    </nav>
+
+    <h1>My Favorites</h1>
+    <div class="favorites-list">
+        {% for favorite in favorites %}
+            <div class="favorite-item">
+                <h2>{{ favorite.item.name }}</h2>
+                <p>{{ favorite.item.description }}</p>
+                <p>Price: ₹{{ favorite.item.price }}</p>
+            </div>
+        {% empty %}
+            <p>You have no favorite items.</p>
+        {% endfor %}
+    </div>
+</body>
+</html> {% endcomment %}
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
+    <title>My Favorites</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu-icon" id="menu-icon">&#9776;</div> <!-- Hamburger icon -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo" />
+        </div>
+        <h1 class="title">My Website</h1>
+        <div class="menu-bar" id="menu-bar">
+            <ul>
+                <li>Hello, {{ request.user.username }}</li>
+                <li><a href="/plans">My Plans</a></li>
+                <li><a href="{% url 'view_favorites' %}">My Favorites</a></li>
+                <li><a href="/cart">My Cart</a></li>
+                <li><a href="/update-password">Update Password</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Favorites</title>
+    </head>
+    <body>
+        <h1>My Favorites</h1>
+        <div class="favorites-container">
+            {% for product in products %}
+            <div class="product-card">
+                <img src="{{ product.images.first.image.url }}" alt="Product Image">
+                <h2>{{ product.title }}</h2>
+                <p class="price">₹{{ product.price }}</p>
+                <p>{{ product.content }}</p>
+            </div>
+            {% empty %}
+            <p>No favorite items added yet.</p>
+            {% endfor %}
+        </div>
+    </body>
+    </html> {% endcomment %}
+    
+
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/userpage1.css' %}">
+        <title>My Favorites</title>
+    </head>
+
+    <style>
+        .favorites-list {
+            width: 100%;
+            margin: 20px auto;
+        }
+        
+        .favorites-list table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #000; /* Table border */
+        }
+        
+        .favorites-list th, .favorites-list td {
+            border: 2px solid #000; /* Cell borders */
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .favorites-list th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        
+        .favorites-list img {
+            display: block;
+            max-width: 100px;
+            height: auto;
+        }
+        
+        .favorite-item {
+            display: table-row;
+        }
+        
+        .favorite-item h2,
+        .favorite-item p,
+        .favorite-item img {
+            display: table-cell;
+        }
+        
+
+        {% comment %}  {% endcomment %}
+        .favorites-list {
+            width: 100%;
+            margin: 20px auto;
+            border: 2px solid black; /* outer border */
+            border-collapse: collapse;
+            display: table;
+        }
+        
+        .favorite-item {
+            display: table-row;
+        }
+        
+        .favorite-item h2,
+        .favorite-item p,
+        .favorite-item img {
+            display: table-cell;
+            border: 1px solid black; /* black cell borders */
+            padding: 10px;
+            vertical-align: middle;
+        }
+        
+        .favorites-list img {
+            max-width: 100px;
+            height: auto;
+        }
+        
+    </style>        
+    <body>
+      
+    
+        <h1>My Favorites</h1>
+<div class="favorites-list">
+    {% for favorite in favorites %}
+        <div class="favorite-item">
+            <h2>{{ favorite.product.title }}</h2>
+            <p>{{ favorite.product.content }}</p>
+            <p>Price: ₹{{ favorite.product.price }}</p>
+            {% if favorite.image %}
+                <img src="{{ favorite.image }}" alt="Product Image" width="150">
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p>You have no favorite items.</p>
+    {% endfor %}
+</div>
+
+    </body>
+    </html>
+    

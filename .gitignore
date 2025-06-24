@@ -1,0 +1,9 @@
+.dj_envi/
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+/static/
+/media/
+*.log
+*.sqlite3

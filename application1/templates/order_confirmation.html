@@ -1,0 +1,134 @@
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/order.css' %}">
+    <title>Checkout</title>
+</head>
+<body>
+
+    <h3>Select Payment Mode</h3>
+    <form action="{% url 'back' %}" >
+        <div class='opt'>
+            <div class='opt1'>
+                <input type="radio" id="gpay" name="payment_mode" value="gpay">
+                <label for="gpay">Google Pay</label>
+            </div>
+            <div>
+                <input type="radio" id="bank-transfer" name="payment_mode" value="bank-transfer">
+                <label for="bank-transfer">Bank Transfer</label>
+            </div>
+            <div>
+                <input type="radio" id="cash-on-delivery" name="payment_mode" value="cash-on-delivery">
+                <label for="cash-on-delivery">Cash on Delivery</label>
+            </div>
+        </div>
+
+        <button type="submit">Confirm Pay</button>
+    </form>
+</body>
+</html> {% endcomment %}
+
+
+
+{% comment %} --------------------------------------------------------------- {% endcomment %}
+{% comment %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/order.css' %}">
+    <title>Checkout</title>
+</head>
+<body>
+
+    <h3>Select Payment Mode</h3>
+    <form id="payment-form" action="javascript:void(0)">
+        <div class='opt'>
+            <div class='opt1'>
+                <input type="radio" id="gpay" name="payment_mode" value="gpay">
+                <label for="gpay">Google Pay</label>
+            </div>
+            <div>
+                <input type="radio" id="bank-transfer" name="payment_mode" value="bank-transfer">
+                <label for="bank-transfer">Bank Transfer</label>
+            </div>
+            <div>
+                <input type="radio" id="cash-on-delivery" name="payment_mode" value="cash-on-delivery">
+                <label for="cash-on-delivery">Cash on Delivery</label>
+            </div>
+        </div>
+
+        <button type="submit">Confirm Pay</button>
+    </form>
+
+    <script>
+        const paymentForm = document.getElementById('payment-form');
+        
+        paymentForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const selectedPaymentMode = document.querySelector('input[name="payment_mode"]:checked');
+
+            if (selectedPaymentMode && selectedPaymentMode.value === 'cash-on-delivery') {
+                // Redirect to user page with a query parameter for success message
+                window.location.href = "/userpage/?payment_success=true";
+            } else {
+                // Handle other payment methods (optional)
+                alert("Payment method not supported for now.");
+            }
+        });
+    </script>
+</body>
+</html> 
+
+
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/order.css' %}">
+    <title>Checkout</title>
+</head>
+<body>
+
+    <h3>Select Payment Mode</h3>
+    <form action="{% url 'place_order' %}" method="POST">
+        {% csrf_token %}
+        <div class='opt'>
+            <div class='opt1'>
+                <input type="radio" id="gpay" name="payment_mode" value="gpay">
+                <label for="gpay">Google Pay</label>
+            </div>
+            <div>
+                <input type="radio" id="bank-transfer" name="payment_mode" value="bank-transfer">
+                <label for="bank-transfer">Bank Transfer</label>
+            </div>
+            <div>
+                <input type="radio" id="cash-on-delivery" name="payment_mode" value="cash-on-delivery">
+                <label for="cash-on-delivery">Cash on Delivery</label>
+            </div>
+        </div>
+
+        <button type="submit">Confirm Pay</button>
+    </form>
+
+</body>
+</html>  

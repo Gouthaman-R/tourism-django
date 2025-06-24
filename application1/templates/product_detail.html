@@ -1,0 +1,8 @@
+<h1>{{ product.title }}</h1>
+    <p>Price: ₹{{ product.price }}</p>
+    <div class="carousel">
+        {% for image in product.images.all %}
+            <img src="{{ image.image.url }}" alt="{{ product.title }}">
+        {% endfor %}
+    </div>
+    <p>{{ product.content }}</p>

@@ -1,0 +1,177 @@
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <title>My Cart</title>
+</head>
+<body>
+
+    <h1>Your Cart</h1>
+    <div class="cart-items">
+        {% for product in products %}
+            <div class="product-card">
+                <img src="{{ product.images.first.image.url }}" alt="Product Image">
+                <h2>{{ product.title }}</h2>
+                <p id="price-{{ product.id }}" class="price">₹{{ product.price }}</p>
+                 <p>{{ product.content }}</p>
+               
+
+
+                <!-- Remove from Cart Button -->
+                <form action="{% url 'remove_from_cart' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="remove-from-cart-btn">Remove from Cart</button>
+                </form>
+
+                <!-- Buy Now Button -->
+                <a href="{% url 'checkout' product.id %}"><button class="buy-now-btn">Buy Now</button></a>
+            </div>
+        
+        {% empty %}
+            <p>Your cart is empty.</p>
+        {% endfor %}
+    </div>
+    
+
+    <script src="{% static 'js/cart.js' %}"></script>
+
+</body>
+</html> {% endcomment %}
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/cart1.css' %}">
+    <title>My Cart</title>
+    
+        
+    
+</head>
+<body>
+<div class='cart-head'>
+    <h1>Your Cart</h1>
+</div>
+    <div class="table1">
+    <table>
+        <thead>
+            <tr>
+                <th>Place</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>About</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td><img src="{{ product.images.first.image.url }}" alt="Product Image" class="product-image"></td>
+                    <td>{{ product.title }}</td>
+                    <td>₹{{ product.price }}</td>
+                    <td>{{ product.content }}</td>
+                    <td>
+
+                        
+
+                        <!-- Remove from Cart Button -->
+                        <form action="{% url 'remove_from_cart' product.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="remove-from-cart-btn">Remove from Cart</button>
+                        </form>
+
+                        
+                        <!-- Buy Now Button -->
+                        <a href="{% url 'checkout' product.id %}">
+                            <button class="buy-now-btn">Buy Now</button>
+                        </a>
+
+
+
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Your cart is empty.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    <script src="{% static 'js/cart.js' %}"></script>
+
+</body>
+</html> {% endcomment %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <title>My Cart</title>
+</head>
+<body>
+<div class='cart-head'>
+    <h1>Your Cart</h1>
+</div>
+<div class="table1">
+    <table>
+        <thead>
+            <tr>
+                <th>Place</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>About</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td><img src="{{ product.images.first.image.url }}" alt="Product Image" class="product-image"></td>
+                    <td>{{ product.title }}</td>
+                    <td>₹{{ product.price }}</td>
+                    <td>{{ product.content }}</td>
+                    <td>
+                        <!-- Remove from Cart Button -->
+                        <form action="{% url 'remove_from_cart' product.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="remove-from-cart-btn">Remove from Cart</button>
+                        </form>
+
+
+                        <!-- Buy Now Button -->
+                        <a href="{% url 'checkout' product.id %}">
+                            <button class="buy-now-btn">Buy Now</button>
+                        </a>
+
+
+
+
+
+                    </td>
+                    
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Your cart is empty.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="{% static 'js/cart.js' %}"></script>
+
+</body>
+</html>

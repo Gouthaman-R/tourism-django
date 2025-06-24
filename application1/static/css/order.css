@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.order-details {
+    text-align: center;
+    margin: 20px;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+} */
+
+/* Success message styling */
+#payment-success-message {
+    position: fixed; /* Fixed at the top of the page */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #28a745; /* Green color */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000; /* Ensure it is on top of other content */
+    display: none; /* Initially hidden */
+}
+
+/* To create some margin below the success message */
+body {
+    margin-top: 60px; /* Adjust based on the height of the message */
+}
+
+
+/* .opt1{
+    text-align: center;
+    transform: translateX(90px);
+} */

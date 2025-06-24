@@ -1,0 +1,156 @@
+
+<style>
+
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('/static/images/sea1.webp'); /* Update path as needed */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+    form {
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+        margin-top:40px;
+        background-color:transparent; /* Slight transparency */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+
+
+
+        transform-style: preserve-3d;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    perspective: 800px;
+    transform-origin: center center;
+    }
+
+    {% comment %} form:hover {
+        transform: perspective(800px) rotateX(10deg);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    } {% endcomment %}
+
+
+    #username-password-login,
+    #otp-login {
+        margin-bottom: 20px;
+    }
+
+    #username-password-login label,
+    #otp-login label {
+        display: table-cell;
+        padding: 10px;
+        width: 40%;
+        vertical-align: middle;
+    }
+
+    #username-password-login input,
+    #otp-login input {
+        display: table-cell;
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    #username-password-login button,
+    #otp-login button {
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color:rgb(0, 0, 0);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #username-password-login button:hover,
+    #otp-login button:hover {
+        background-color: #0056b3;
+    }
+
+    p {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    p[style*="color:red"] {
+        background-color: #ffe5e5;
+        border: 1px solid #ff0000;
+        padding: 10px;
+        border-radius: 5px;
+        color: #cc0000 !important;
+    }
+</style>
+
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div id="username-password-login">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        
+        <button type="submit" name="login_method" value="username_password">Login with Username & Password</button>
+    </div>
+    
+    <div id="otp-login">
+        <label for="email">Email:</label>
+        <input type="email" name="email" >
+        
+        <button type="submit" name="login_method" value="otp">Send OTP</button>
+    </div>
+
+    {% if error_message %}
+        <p style="color:red;">{{ error_message }}</p>
+    {% endif %}
+</form>
+
+
+
+
+
+
+
+
+{% comment %} 
+
+
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('mousemove', (e) => {
+        const rect = form.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position within the element
+        const y = e.clientY - rect.top;  // y position within the element
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -20; // Invert for backward tilt
+        const rotateY = ((x - centerX) / centerX) * 20;
+
+        form.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    form.addEventListener('mouseleave', () => {
+        form.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+</script> {% endcomment %}
